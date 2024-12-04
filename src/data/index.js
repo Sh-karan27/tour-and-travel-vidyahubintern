@@ -2,6 +2,11 @@ const navLinks = [
   {
     name: 'Home',
     link: '/',
+    drop: [
+      {
+        name: 'services',
+      },
+    ],
   },
   {
     name: 'Flight',
