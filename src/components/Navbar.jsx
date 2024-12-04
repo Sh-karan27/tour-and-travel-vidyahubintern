@@ -2,40 +2,19 @@ import { useEffect, useState } from "react";
 import logo from "../assets/images/logo.png";
 import { navLinks } from "../data";
 import { NavLink } from "react-router";
+import PropTypes from "prop-types";
 
-const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      console.log(window.scrollY);
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    // Cleanup the event listener on unmount
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  /* TODO: use twMerge and clsx to combine class*/
+const LargeScreenNavLinks = ({ isScrolled }) => {
   return (
-    <nav
-      className={`w-full p-4 flex items-center justify-evenly fixed top-0 ${isScrolled ? "bg-white shadow-md" : "bg-transparent"}`}
-    >
-      <div className="flex items-center justify-center gap-1 text-red-500">
-        <img src={logo} alt="logo" className="w-10 h-10" />
-        <span className="text-xl font-bold">Travel</span>
-      </div>
-
-      <div className="w-1/2 flex items-center justify-evenly">
+    <>
+      <div className="w-1/2 items-center justify-evenly xl:flex hidden mx-auto">
         {navLinks.map((curr, i) => (
           <div className="relative group" key={i}>
             <NavLink
               to={curr.link}
-              className={`relative font-semibold hover:text-red-500 group ${isScrolled ? "text-black" : "text-white"}`}
+              className={`relative font-semibold hover:text-red-500 group ${
+                isScrolled ? "text-black" : "text-white"
+              }`}
             >
               {curr.title}
               <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-red-500 transition-all duration-500 group-hover:w-full"></span>
@@ -57,7 +36,7 @@ const Navbar = () => {
         ))}
       </div>
 
-      <div className="flex items-center justify-center gap-2">
+      <div className="items-center justify-center gap-2 ml-auto xl:flex hidden">
         <button className="border rounded-md p-2 text-red-500 bg-white">
           IND|ENG
         </button>
@@ -65,7 +44,114 @@ const Navbar = () => {
           INR
         </button>
       </div>
-    </nav>
+    </>
+  );
+};
+
+LargeScreenNavLinks.propTypes = {
+  isScrolled: PropTypes.bool,
+};
+
+const HamburgerLinks = ({ title, childrenH }) => {
+  const [showChildren, setShowChildren] = useState(false);
+  return (
+    <>
+      <li className="border-gray-400 border-b-[1px] transition-all duration-300">
+        <div className="p-4 flex">
+          <NavLink>{title}</NavLink>
+          <button
+            onClick={() => setShowChildren((prev) => !prev)}
+            className="ml-auto"
+          >
+            plus
+          </button>
+        </div>
+        <div
+          className={`transition-all duration-300 px-8 flex-col ${
+            showChildren ? "flex" : "hidden"
+          } overflow-hidden`}
+        >
+          {childrenH.map((child, i) => (
+            <NavLink className={"p-4"} key={i}>
+              {child.title}
+            </NavLink>
+          ))}
+        </div>
+      </li>
+    </>
+  );
+};
+
+HamburgerLinks.propTypes = {
+  title: PropTypes.string,
+  childrenH: PropTypes.array,
+};
+
+const Hamburger = ({ showMenu }) => {
+  return (
+    <div className="xl:hidden flex">
+      <ul
+        className={`no-scrollbar font-bold overflow-scroll transition-all duration-300 absolute top-[100%] left-0 w-full bg-white ${
+          showMenu ? "h-screen" : "h-0"
+        }`}
+      >
+        {navLinks.map((curr, i) => (
+          <HamburgerLinks
+            key={i}
+            title={curr.title}
+            childrenH={curr.children}
+          />
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+Hamburger.propTypes = {
+  showMenu: PropTypes.bool,
+};
+
+const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup the event listener on unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  /* TODO: use twMerge and clsx to combine class*/
+  return (
+    <>
+      <nav
+        className={`relative w-full xl:fixed top-0 ${
+          isScrolled ? "bg-white shadow-md" : "bg-transparent"
+        }`}
+      >
+        <div className="p-4 flex items-center max-w-7xl mx-auto">
+          <div className="flex items-center justify-center gap-1 text-red-500">
+            <img src={logo} alt="logo" className="w-10 h-10" />
+            <span className="text-xl font-bold">Travel</span>
+          </div>
+          <LargeScreenNavLinks isScrolled={isScrolled} />
+          <button
+            onClick={() => setShowMenu((prev) => !prev)}
+            className="xl:hidden ml-auto border rounded-md p-2 text-red-500"
+          >
+            menu
+          </button>
+          <Hamburger showMenu={showMenu} />
+        </div>
+      </nav>
+    </>
   );
 };
 
