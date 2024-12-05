@@ -3,6 +3,7 @@ import logo from "../assets/images/logo.png";
 import { navLinks } from "../data";
 import { NavLink } from "react-router";
 import PropTypes from "prop-types";
+import { LuPlus } from "react-icons/lu";
 
 const LargeScreenNavLinks = ({ isScrolled }) => {
   return (
@@ -58,21 +59,22 @@ const HamburgerLinks = ({ title, childrenH }) => {
     <>
       <li className="border-gray-400 border-b-[1px] transition-all duration-300">
         <div className="p-4 flex">
-          <NavLink>{title}</NavLink>
+          <NavLink className={"hover:text-blue-500 w-full"}>{title}</NavLink>
           <button
             onClick={() => setShowChildren((prev) => !prev)}
-            className="ml-auto"
+            className="ml-auto text-gray-400 outline-none"
           >
-            plus
+            <LuPlus />
           </button>
         </div>
+
         <div
-          className={`transition-all duration-300 px-8 flex-col ${
-            showChildren ? "flex" : "hidden"
+          className={`transition-all duration-300 px-8 flex flex-col ${
+            showChildren ? "" : "h-0"
           } overflow-hidden`}
         >
           {childrenH.map((child, i) => (
-            <NavLink className={"p-4"} key={i}>
+            <NavLink className={"p-4 hover:text-blue-500"} key={i}>
               {child.title}
             </NavLink>
           ))}
@@ -132,8 +134,8 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`relative w-full xl:fixed top-0 ${
-          isScrolled ? "bg-white shadow-md" : "bg-transparent"
+        className={`w-full fixed top-0 ${
+          isScrolled || showMenu ? "bg-white shadow-md" : "bg-transparent"
         }`}
       >
         <div className="p-4 flex items-center max-w-7xl mx-auto">
