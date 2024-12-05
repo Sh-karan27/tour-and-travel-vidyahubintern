@@ -55,6 +55,11 @@ LargeScreenNavLinks.propTypes = {
 
 const HamburgerLinks = ({ title, childrenH }) => {
   const [showChildren, setShowChildren] = useState(false);
+
+  useEffect(() => {
+    document.querySelector(".wrapper")?.classList.toggle("grid-rows-1");
+  }, [showChildren]);
+
   return (
     <>
       <li className="border-gray-400 border-b-[1px] transition-all duration-300">
@@ -69,15 +74,17 @@ const HamburgerLinks = ({ title, childrenH }) => {
         </div>
 
         <div
-          className={`transition-all duration-300 px-8 flex flex-col ${
-            showChildren ? "" : "h-0"
-          } overflow-hidden`}
+          className={`overflow-hidden grid transition-all duration-300 ${
+            showChildren ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+          }`}
         >
-          {childrenH.map((child, i) => (
-            <NavLink className={"p-4 hover:text-blue-500"} key={i}>
-              {child.title}
-            </NavLink>
-          ))}
+          <div className={`px-8 flex flex-col overflow-hidden`}>
+            {childrenH.map((child, i) => (
+              <NavLink className={"p-4 hover:text-blue-500"} key={i}>
+                {child.title}
+              </NavLink>
+            ))}
+          </div>
         </div>
       </li>
     </>
@@ -134,7 +141,7 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`w-full fixed top-0 ${
+        className={`w-full z-50 fixed top-0 ${
           isScrolled || showMenu ? "bg-white shadow-md" : "bg-transparent"
         }`}
       >
