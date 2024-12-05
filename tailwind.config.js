@@ -24,6 +24,10 @@ export default {
         section: "5rem",
         button: "1rem",
       },
+      fontFamily: {
+        reey: ['"Reey Regular"', 'sans-serif'],
+        sass: ['"DM Sans"', 'sans-serif']
+      },
     },
   },
   plugins: [],

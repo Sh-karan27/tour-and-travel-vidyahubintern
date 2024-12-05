@@ -1,10 +1,43 @@
+@import url(https://db.onlinewebfonts.com/c/12ece9d4b11e224fbbd0b5ca246bb213?family=Reey+Regular); 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@keyframes bounce-slow {
+    0%, 100% {
+        transform: translateY(0);
+        }
+        50% {
+        transform: translateY(-10px);
+        }
+}
+
+@keyframes crowArc {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    50% {
+        transform: translateY(-8px) translateX(-8px); /* Small movement up and left */
+    }
+    100% {
+        transform: translateY(0) translateX(0); /* Back to the original position */
+    }
+}
+
+.animate-crowArc {
+    animation: crowArc 3s linear infinite;
+}
+
+
+
+/* Custom animation class */
+.animate-bounce-slow {
+    animation: bounce-slow 2s linear infinite;
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 .no-scrollbar::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
