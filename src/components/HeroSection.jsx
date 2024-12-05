@@ -6,60 +6,65 @@ const HeroSection = () => {
     <div className="w-full h-screen">
       {/* Hero Section */}
       <div
-        className="h-full w-full bg-cover bg-center flex flex-col items-center justify-evenly"
+        className="h-full w-full bg-cover bg-center flex flex-col justify-center items-center"
         style={{ backgroundImage: `url(${Hero})` }}
       >
-        <div className="text-center text-white">
-          <h1 className="text-4xl font-bold">Travelling Around the World</h1>
-          <p className="mt-4 text-lg">
-            Taciti quasi, sagittis excepteur hymenaeos, id temporibus hic.
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+
+        {/* Content */}
+        <div className="relative text-center text-white px-4 md:px-10">
+          <h1 className="text-3xl md:text-5xl font-bold leading-tight">
+            Explore the World with Us
+          </h1>
+          <p className="mt-4 text-sm md:text-lg max-w-xl mx-auto">
+            Discover breathtaking destinations and make unforgettable memories.
+            Plan your next adventure today!
           </p>
-          <button className="mt-6 px-6 py-2 bg-red-500 text-white font-semibold rounded hover:bg-red-600">
-            Continue Reading
+          <button className="mt-6 px-8 py-3 bg-red-500 text-white font-semibold rounded-lg shadow-lg hover:bg-red-600 transition">
+            Learn More
           </button>
         </div>
 
         {/* Input Section */}
-        <div className=" mt-10  bg-white flex items-center justify-center">
-          <div className=" bg-gray-100 shadow-md rounded-lg p-6">
-            <form className="flex justify-between gap-4">
-              <div className="flex flex-col w-1/4">
-                <label className="mb-2 text-gray-700">
-                  Search Destination*
-                </label>
-                <input
-                  type="text"
-                  placeholder="Delhi"
-                  className="p-2 border rounded focus:outline-none focus:ring focus:ring-blue-300"
-                />
-              </div>
-              <div className="flex flex-col w-1/4">
-                <label className="mb-2 text-gray-700">Pax Number*</label>
-                <input
-                  type="number"
-                  placeholder="2"
-                  className="p-2 border rounded focus:outline-none focus:ring focus:ring-blue-300"
-                />
-              </div>
-              <div className="flex flex-col w-1/4">
-                <label className="mb-2 text-gray-700">Checkin Date*</label>
-                <input
-                  type="date"
-                  className="p-2 border rounded focus:outline-none focus:ring focus:ring-blue-300"
-                />
-              </div>
-              <div className="flex flex-col w-1/4">
-                <label className="mb-2 text-gray-700">Checkout Date*</label>
-                <input
-                  type="date"
-                  className="p-2 border rounded focus:outline-none focus:ring focus:ring-blue-300"
-                />
-              </div>
-              <button className="self-end px-6 py-2 bg-red-500 text-white font-semibold rounded hover:bg-red-600">
+        <div className="relative mt-10 w-full max-w-4xl bg-white rounded-lg shadow-lg p-6">
+          <form className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="flex flex-col">
+              <label className="text-gray-700 font-medium">Destination*</label>
+              <input
+                type="text"
+                placeholder="Enter a city"
+                className="p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+              />
+            </div>
+            <div className="flex flex-col">
+              <label className="text-gray-700 font-medium">Pax Number*</label>
+              <input
+                type="number"
+                placeholder="2"
+                className="p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+              />
+            </div>
+            <div className="flex flex-col">
+              <label className="text-gray-700 font-medium">Check-in*</label>
+              <input
+                type="date"
+                className="p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+              />
+            </div>
+            <div className="flex flex-col">
+              <label className="text-gray-700 font-medium">Check-out*</label>
+              <input
+                type="date"
+                className="p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+              />
+            </div>
+            <div className="sm:col-span-2 md:col-span-4 flex justify-center">
+              <button className="px-8 py-3 bg-red-500 text-white font-semibold rounded-lg shadow-lg hover:bg-red-600 transition">
                 Inquire Now
               </button>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>

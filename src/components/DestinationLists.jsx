@@ -7,15 +7,20 @@ import thailand from "../assets/images/thailand.avif";
 
 const DestinationLists = () => {
   return (
-    <div className="w-full h-screen flex flex-col items-center justify-start p-4">
+    <div className="w-full py-16 flex flex-col items-center justify-start px-4 md:px-8 lg:px-16 bg-white">
       {/* Heading */}
-      <h1 className="text-3xl font-bold mb-6">Unique Destinations</h1>
+      <h3 className="font-reey text-[#e8604c] text-[20px]">
+        Destination Lists
+      </h3>
+      <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 text-[#303141] text-center">
+        Go Exotic Places
+      </h1>
 
       {/* Custom Grid Layout */}
-      <div className="grid grid-cols-12 gap-4 w-full max-w-6xl h-5/6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 w-full max-w-6xl mt-10">
         {/* Row 1 */}
         <div
-          className="relative rounded-lg shadow-md col-span-3 bg-cover bg-center group overflow-hidden transform transition-all duration-300 ease-out hover:scale-105"
+          className="relative rounded-lg shadow-md col-span-1 lg:col-span-3 bg-cover bg-center group overflow-hidden transform transition-all duration-300 ease-out hover:scale-105 aspect-[3/2]"
           style={{
             backgroundImage: `url(${africa})`,
           }}
@@ -31,7 +36,7 @@ const DestinationLists = () => {
         </div>
 
         <div
-          className="relative rounded-lg shadow-md col-span-6 bg-cover bg-center group overflow-hidden transform transition-all duration-300 ease-out hover:scale-105"
+          className="relative rounded-lg shadow-md col-span-1 sm:col-span-2 lg:col-span-6 bg-cover bg-center group overflow-hidden transform transition-all duration-300 ease-out hover:scale-105 aspect-[3/2]"
           style={{
             backgroundImage: `url(${australia})`,
           }}
@@ -47,7 +52,7 @@ const DestinationLists = () => {
         </div>
 
         <div
-          className="relative rounded-lg shadow-md col-span-3 bg-cover bg-center group overflow-hidden transform transition-all duration-300 ease-out hover:scale-105"
+          className="relative rounded-lg shadow-md col-span-1 lg:col-span-3 bg-cover bg-center group overflow-hidden transform transition-all duration-300 ease-out hover:scale-105 aspect-[3/2]"
           style={{
             backgroundImage: `url(${spain})`,
           }}
@@ -64,7 +69,7 @@ const DestinationLists = () => {
 
         {/* Row 2 */}
         <div
-          className="relative rounded-lg shadow-md col-span-7 bg-cover bg-center group overflow-hidden transform transition-all duration-300 ease-out hover:scale-105"
+          className="relative rounded-lg shadow-md col-span-1 sm:col-span-2 lg:col-span-7 bg-cover bg-center group overflow-hidden transform transition-all duration-300 ease-out hover:scale-105 aspect-[3/2]"
           style={{
             backgroundImage: `url(${swizerland})`,
           }}
@@ -80,7 +85,7 @@ const DestinationLists = () => {
         </div>
 
         <div
-          className="relative rounded-lg shadow-md col-span-5 bg-cover bg-center group overflow-hidden transform transition-all duration-300 ease-out hover:scale-105"
+          className="relative rounded-lg shadow-md col-span-1 lg:col-span-5 bg-cover bg-center group overflow-hidden transform transition-all duration-300 ease-out hover:scale-105 aspect-[3/2]"
           style={{
             backgroundImage: `url(${thailand})`,
           }}
