@@ -3,6 +3,7 @@ import logo from "../assets/images/logo.png";
 import { navLinks } from "../data";
 import { NavLink } from "react-router";
 import PropTypes from "prop-types";
+import { LuPlus } from "react-icons/lu";
 
 const LargeScreenNavLinks = ({ isScrolled }) => {
   return (
@@ -54,28 +55,36 @@ LargeScreenNavLinks.propTypes = {
 
 const HamburgerLinks = ({ title, childrenH }) => {
   const [showChildren, setShowChildren] = useState(false);
+
+  useEffect(() => {
+    document.querySelector(".wrapper")?.classList.toggle("grid-rows-1");
+  }, [showChildren]);
+
   return (
     <>
       <li className="border-gray-400 border-b-[1px] transition-all duration-300">
         <div className="p-4 flex">
-          <NavLink>{title}</NavLink>
+          <NavLink className={"hover:text-blue-500 w-full"}>{title}</NavLink>
           <button
             onClick={() => setShowChildren((prev) => !prev)}
-            className="ml-auto"
+            className="ml-auto text-gray-400 outline-none"
           >
-            plus
+            <LuPlus />
           </button>
         </div>
+
         <div
-          className={`transition-all duration-300 px-8 flex-col ${
-            showChildren ? "flex" : "hidden"
-          } overflow-hidden`}
+          className={`overflow-hidden grid transition-all duration-300 ${
+            showChildren ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+          }`}
         >
-          {childrenH.map((child, i) => (
-            <NavLink className={"p-4"} key={i}>
-              {child.title}
-            </NavLink>
-          ))}
+          <div className={`px-8 flex flex-col overflow-hidden`}>
+            {childrenH.map((child, i) => (
+              <NavLink className={"p-4 hover:text-blue-500"} key={i}>
+                {child.title}
+              </NavLink>
+            ))}
+          </div>
         </div>
       </li>
     </>
@@ -132,8 +141,8 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`relative w-full xl:fixed top-0 ${
-          isScrolled ? "bg-white shadow-md" : "bg-transparent"
+        className={`w-full z-50 fixed top-0 ${
+          isScrolled || showMenu ? "bg-white shadow-md" : "bg-transparent"
         }`}
       >
         <div className="p-4 flex items-center max-w-7xl mx-auto">
@@ -143,10 +152,28 @@ const Navbar = () => {
           </div>
           <LargeScreenNavLinks isScrolled={isScrolled} />
           <button
+            id="hamburger"
             onClick={() => setShowMenu((prev) => !prev)}
-            className="xl:hidden ml-auto border rounded-md p-2 text-red-500"
+            className={`xl:hidden ml-auto relative outline-none w-10 h-6 flex flex-col justify-between items-center group group/open overflow-hidden`}
           >
-            menu
+            {/* Line 1 */}
+            <div
+              className={`w-8 h-1 bg-gray-600 rounded transition-all duration-300 ${
+                showMenu ? "rotate-45 translate-y-[9px]" : ""
+              }`}
+            ></div>
+            {/* Line 2 */}
+            <div
+              className={`w-8 h-1 bg-gray-600 rounded transition-all duration-300 ${
+                showMenu ? "opacity-0" : ""
+              }`}
+            ></div>
+            {/* Line 3 */}
+            <div
+              className={`w-8 h-1 bg-gray-600 rounded transition-all duration-300 ${
+                showMenu ? "-rotate-45 -translate-y-[9px]" : ""
+              }`}
+            ></div>
           </button>
           <Hamburger showMenu={showMenu} />
         </div>
