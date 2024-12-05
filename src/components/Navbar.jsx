@@ -152,10 +152,28 @@ const Navbar = () => {
           </div>
           <LargeScreenNavLinks isScrolled={isScrolled} />
           <button
+            id="hamburger"
             onClick={() => setShowMenu((prev) => !prev)}
-            className="xl:hidden ml-auto border rounded-md p-2 text-red-500"
+            className={`xl:hidden ml-auto relative outline-none w-10 h-6 flex flex-col justify-between items-center group group/open overflow-hidden`}
           >
-            menu
+            {/* Line 1 */}
+            <div
+              className={`w-8 h-1 bg-gray-600 rounded transition-all duration-300 ${
+                showMenu ? "rotate-45 translate-y-[9px]" : ""
+              }`}
+            ></div>
+            {/* Line 2 */}
+            <div
+              className={`w-8 h-1 bg-gray-600 rounded transition-all duration-300 ${
+                showMenu ? "opacity-0" : ""
+              }`}
+            ></div>
+            {/* Line 3 */}
+            <div
+              className={`w-8 h-1 bg-gray-600 rounded transition-all duration-300 ${
+                showMenu ? "-rotate-45 -translate-y-[9px]" : ""
+              }`}
+            ></div>
           </button>
           <Hamburger showMenu={showMenu} />
         </div>
