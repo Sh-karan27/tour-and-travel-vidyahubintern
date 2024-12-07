@@ -4,8 +4,20 @@ const navLinks = [
     link: "#",
     children: [
       {
-        title: "Home 2",
-        link: "#",
+        title: "About",
+        link: "#About",
+      },
+      {
+        title: "Services",
+        link: "#Services",
+      },
+      {
+        title: "Destination List",
+        link: "#DestinationList",
+      },
+      {
+        title: "Why Choose Us",
+        link: "#WhyChooseUs",
       },
     ],
   },
