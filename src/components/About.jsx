@@ -7,7 +7,10 @@ import { RiCheckboxCircleFill } from "react-icons/ri";
 
 const About = () => {
   return (
-    <div className="w-full py-16 bg-[#ffffff] flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0 px-6 md:px-12 lg:px-24 relative z-10">
+    <div
+      className="w-full py-16 bg-[#ffffff] flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0 px-6 md:px-12 lg:px-24 relative z-10"
+      id="About"
+    >
       {/* Left Section */}
       <div className="flex flex-col w-full lg:w-1/2 relative">
         <div className="relative">
