@@ -4,6 +4,7 @@ import About from "../components/About";
 import DestinationLists from "../components/DestinationLists";
 import Services from "../components/Services";
 import WhyChooseUs from "../components/WhyChooseUs";
+import Testimonial from "../components/Testimonial";
 
 const Home = () => {
   return (
@@ -12,7 +13,7 @@ const Home = () => {
       <About />
       <Services />
       <DestinationLists />
-      <WhyChooseUs />
+      <Testimonial />
     </>
   );
 };
