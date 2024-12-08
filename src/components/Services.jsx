@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import serviceData from "../data/serviceData";
 
 const Services = () => {
+
     const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
