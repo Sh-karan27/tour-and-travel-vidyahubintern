@@ -1,24 +1,12 @@
 const navLinks = [
   {
     title: "Home",
-    link: "#",
+    link: "/#",
     children: [
-      {
-        title: "About",
-        link: "#About",
-      },
-      {
-        title: "Services",
-        link: "#Services",
-      },
-      {
-        title: "Destination List",
-        link: "#DestinationList",
-      },
-      {
-        title: "Why Choose Us",
-        link: "#WhyChooseUs",
-      },
+      { title: "About", link: "/#about" },
+      { title: "Services", link: "/#services" },
+      { title: "Destination List", link: "/#destination" },
+      { title: "Reviews", link: "/#reviews" },
     ],
   },
   {

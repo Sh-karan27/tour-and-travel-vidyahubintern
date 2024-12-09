@@ -25,7 +25,7 @@ const Services = () => {
     return (
         <div className="w-11/12 h-screen mx-auto flex flex-col">
             {/* Heading Section */}
-            <div className="w-full text-center py-8">
+            <div className="w-full text-center py-4">
                 <h2 className="font-reey text-[#e8604c] text-[20px]">Our Services</h2>
                 <p className="text-2xl sm:text-3xl lg:text-4xl font-semibold mt-4 text-[#303141] text-center">Elevate your Experience</p>
             </div>
