@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import logo from "../assets/images/logo.png";
 import { navLinks } from "../data";
-import { NavLink } from "react-router";
 import PropTypes from "prop-types";
 import { LuPlus } from "react-icons/lu";
+import { HashLink as NavLink } from "react-router-hash-link";
 
 const LargeScreenNavLinks = ({ isScrolled }) => {
   return (
@@ -13,6 +13,7 @@ const LargeScreenNavLinks = ({ isScrolled }) => {
           <div className="relative group" key={i}>
             <NavLink
               to={curr.link}
+              smooth
               className={`relative font-semibold hover:text-red-500 group ${
                 isScrolled ? "text-black" : "text-white"
               }`}
@@ -20,6 +21,7 @@ const LargeScreenNavLinks = ({ isScrolled }) => {
               {curr.title}
               <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-red-500 transition-all duration-500 group-hover:w-full"></span>
             </NavLink>
+
             <div className="absolute group-hover:block hidden top-[100%]">
               <div className="min-w-[15rem] bg-white mt-[2rem] border-t-4 border-t-red-500">
                 {curr.children.map((child, i) => (
