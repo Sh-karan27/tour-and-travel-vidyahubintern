@@ -4,7 +4,7 @@ import { RiStarSFill } from "react-icons/ri";
 
 const Testimonial = () => {
   return (
-    <div className="w-11/12 mx-auto h-screen flex flex-col items-center justify-center ">
+    <div className="w-11/12 mx-auto min-h-screen flex flex-col items-center justify-center ">
       {/* Heading Section */}
       <div className="w-full text-center py-8">
         <h2 className="font-reey text-[#e8604c] text-lg md:text-xl lg:text-2xl">
