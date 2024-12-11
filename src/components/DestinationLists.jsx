@@ -8,7 +8,7 @@ import thailand from "../assets/images/thailand.avif";
 const DestinationLists = () => {
   return (
     <div
-      className="w-full h-screen  flex flex-col items-center justify-center px-4 md:px-8 lg:px-16 bg-white"
+      className="w-full min-h-screen  flex flex-col items-center justify-center px-4 md:px-8 lg:px-16 bg-white"
       id="DestinationList"
     >
       {/* Heading */}
