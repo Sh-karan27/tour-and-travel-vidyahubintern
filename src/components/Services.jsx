@@ -23,7 +23,7 @@ const Services = () => {
   };
 
   return (
-    <div className="w-11/12 h-screen mx-auto flex flex-col">
+    <div className="w-11/12 min-h-[560px] mx-auto flex flex-col mt-6 lg:mt-0">
       {/* Heading Section */}
       <div className="w-full text-center py-4">
         <h2 className="font-reey text-[#e8604c] text-[20px]">Our Services</h2>
