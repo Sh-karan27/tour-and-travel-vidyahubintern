@@ -23,7 +23,7 @@ const Services = () => {
   };
 
   return (
-    <div className='w-11/12 min-h-screen mx-auto flex flex-col'>
+    <div className="w-11/12 min-h-[560px] mx-auto flex flex-col mt-6 lg:mt-0">
       {/* Heading Section */}
       <div className='w-full text-center py-2'>
         {' '}
