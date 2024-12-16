@@ -81,12 +81,8 @@ Follow these steps to run the project locally:
    ```bash
    npm run dev
    ```
-   The website will be available at `http://localhost:3000`.
+   The website will be available at `http://localhost:5173/`.
 
-4. **Build for production**:
-   ```bash
-   npm run build
-   ```
 
 ---
 
@@ -139,7 +135,7 @@ Check out the live demo of the Tour & Travel Website here:
 
 ## 📆 Project Timeline
 
-- **Start Date**: December 2, 2024
+- **Start Date**: December 4, 2024
 - **End Date**: December 16, 2024
 
 ---
