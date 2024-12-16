@@ -11,7 +11,6 @@ import Error from "./screens/Error";
 import About from "./components/About";
 import Services from "./components/Services";
 import DestinationLists from "./components/DestinationLists";
-import WhyChooseUs from "./components/WhyChooseUs";
 
 const App = () => {
   return (
@@ -28,7 +27,6 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/destination" element={<DestinationLists />} />
-            <Route path="/whyus" element={<WhyChooseUs />} />
             <Route path="*" element={<Error />} />
           </Routes>
         </div>
