@@ -68,7 +68,7 @@ Follow these steps to run the project locally:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/tour-and-travel-website.git
+   git clone https://github.com/Sh-karan27/tour-and-travel-vidyahubintern.git
    cd tour-and-travel-website
    ```
 
