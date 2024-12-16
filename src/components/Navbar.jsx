@@ -143,7 +143,7 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`w-full z-50 fixed top-0 ${
+        className={`w-full z-50 fixed top-0 h-16 ${
           isScrolled || showMenu ? "bg-white shadow-md" : "bg-transparent"
         }`}
       >
