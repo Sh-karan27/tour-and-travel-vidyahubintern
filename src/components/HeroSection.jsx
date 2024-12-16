@@ -37,7 +37,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <div className="w-full h-screen  md:pt-20">
+    <div className="w-full h-screen  ">
       {/* Hero Section */}
       <div
         className="h-full w-full bg-cover bg-center flex flex-col justify-evenly items-center"
